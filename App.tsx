@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
-import { Menu, X, ChevronRight, HeartHandshake, ShieldCheck, Home, Users, Phone, Mail, MapPin, CheckCircle2 } from 'lucide-react';
+import { Menu, X, ChevronRight, HeartHandshake, ShieldCheck, Home, Users, Phone, Mail, MapPin, CheckCircle2, Globe, Shield, Smile, Building, UserCog, ClipboardList, UserCheck, CreditCard, MessageSquare, BarChart2, FolderKanban, PlusCircle, MinusCircle, BookLock, ShieldAlert, FileText, BookOpen, SmilePlus, Siren, ReceiptText, Truck } from 'lucide-react';
 import { TeamCard } from './components/TeamCard';
 import { ChatWidget } from './components/ChatWidget';
 import { Button } from './components/Button';
-import { TEAM_DATA, SERVICES_DATA, TAGLINE_MAIN, TAGLINE_SUB } from './constants';
+import { Logo } from './components/Logo';
+import { TEAM_DATA, SERVICES_DATA, TAGLINE_SUB, TARGET_AUDIENCE_DATA, FOUNDER_MESSAGE, FAQ_DATA, USER_ROLES_DATA, INTEGRATIONS_DATA, PRIVACY_POLICY_TEXT } from './constants';
 
 const App: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+
+  const navLinks = ['About', 'Services', 'Team', 'FAQ', 'Contact'];
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -16,11 +20,29 @@ const App: React.FC = () => {
     }
   };
 
-  const iconMap: Record<string, React.ReactNode> = {
-    HeartHandshake: <HeartHandshake size={40} className="text-brand-green" />,
-    ShieldCheck: <ShieldCheck size={40} className="text-brand-green" />,
-    Home: <Home size={40} className="text-brand-green" />,
-    Users: <Users size={40} className="text-brand-green" />,
+  const iconMap: Record<string, React.ComponentType<any>> = {
+    HeartHandshake,
+    ShieldCheck,
+    Home,
+    Users,
+    Globe,
+    Shield,
+    Smile,
+    Building,
+    UserCog,
+    ClipboardList,
+    UserCheck,
+    CreditCard,
+    MessageSquare,
+    BarChart2,
+    FolderKanban,
+    ShieldAlert,
+    FileText,
+    BookOpen,
+    SmilePlus,
+    Siren,
+    ReceiptText,
+    Truck
   };
 
   return (
@@ -29,21 +51,17 @@ const App: React.FC = () => {
       <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-24">
-            {/* Logo */}
             <div className="flex-shrink-0 flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth'})}>
               <img 
                 src="/logo.png" 
                 alt="Home Connect Logo" 
                 className="h-16 md:h-20 w-auto object-contain"
                 onError={(e) => {
-                  // If logo.png is missing, show a fallback text/icon combo but encourage user to add the file
                   const target = e.currentTarget;
                   target.style.display = 'none';
                   target.parentElement?.querySelector('.logo-fallback')?.classList.remove('hidden');
                 }}
               />
-              
-              {/* Fallback Logo Display (Hidden by default if image loads) */}
               <div className="logo-fallback hidden flex items-center gap-2">
                 <div className="flex items-center justify-center w-12 h-12 bg-brand-green rounded-lg text-white">
                    <Home size={24} />
@@ -57,7 +75,7 @@ const App: React.FC = () => {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8 items-center">
-              {['About', 'Services', 'Team', 'Contact'].map((item) => (
+              {navLinks.map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
@@ -83,11 +101,10 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Menu Dropdown */}
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white border-b border-gray-100">
             <div className="px-4 pt-2 pb-6 space-y-2">
-              {['About', 'Services', 'Team', 'Contact'].map((item) => (
+              {navLinks.map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
@@ -105,24 +122,22 @@ const App: React.FC = () => {
       <section className="relative bg-brand-dark overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://picsum.photos/seed/zimbabwelandscape/1920/1080"
-            alt="Zimbabwean Landscape"
+            src="https://storage.googleapis.com/aistudio-hosting/workspace-assets/72d95b5c-4233-479c-b174-a0357f86641e/72d95b5c-4233-479c-b174-a0357f86641e.jpeg"
+            alt="A social worker consulting with children in a home setting"
             className="w-full h-full object-cover opacity-40"
           />
-          {/* Gradient Overlay - Zimbabwean Flag inspired subtle mix */}
           <div className="absolute inset-0 bg-gradient-to-r from-brand-green/95 via-brand-dark/90 to-brand-brown/80"></div>
         </div>
-        
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
           <div className="lg:w-2/3">
             <div className="inline-flex items-center px-3 py-1 rounded-full border border-brand-gold/50 bg-brand-gold/20 text-brand-gold mb-6 backdrop-blur-sm">
               <span className="text-sm font-bold uppercase tracking-wider">Redefining Connections</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight mb-6">
-              {TAGLINE_MAIN}
+              Your Trusted Partner in Child Welfare
             </h1>
             <p className="text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl border-l-4 border-brand-orange pl-4">
-              {TAGLINE_SUB} We ensure your children back home are safe, their needs are met, and your resources are used for their intended purpose.
+              {TAGLINE_SUB} We provide peace of mind by ensuring your children are safe, their needs are met, and your resources are used as intended.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" onClick={() => scrollToSection('contact')} variant="secondary">
@@ -134,12 +149,12 @@ const App: React.FC = () => {
             </div>
           </div>
         </div>
-        
-        {/* Decorative bottom wave or border */}
         <div className="absolute bottom-0 w-full h-2 bg-gradient-to-r from-brand-green via-brand-gold to-brand-red"></div>
       </section>
 
-      {/* About / Mission Section */}
+      <Logo />
+
+      {/* About Section */}
       <section id="about" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -175,6 +190,56 @@ const App: React.FC = () => {
           </div>
         </div>
       </section>
+      
+      {/* Founder's Message Section */}
+      <section id="founder-message" className="py-20 bg-brand-light">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden p-8 md:p-12 grid md:grid-cols-3 gap-8 items-center">
+                <div className="md:col-span-1 flex justify-center">
+                    <img
+                        src={`https://picsum.photos/seed/101/400/400`}
+                        alt="Mr. Felix Ngirazi"
+                        className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-8 border-brand-gold/50 shadow-md"
+                    />
+                </div>
+                <div className="md:col-span-2">
+                    <h2 className="text-3xl font-serif font-bold text-brand-green mb-4">A Message from Our Founder</h2>
+                    <p className="text-gray-600 italic leading-relaxed mb-6">"{FOUNDER_MESSAGE}"</p>
+                    <div>
+                        <p className="font-bold text-brand-dark text-lg">Mr. Felix Ngirazi</p>
+                        <p className="text-brand-orange font-semibold">Founder & Chairperson</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      {/* Who We Serve Section */}
+      <section id="who-we-serve" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-4">Who We Serve</h2>
+            <p className="text-xl text-brand-brown max-w-3xl mx-auto">
+              Home Connect is dedicated to supporting a wide range of individuals and groups committed to the well-being of children.
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-8">
+            {TARGET_AUDIENCE_DATA.map((audience, idx) => {
+              const IconComponent = iconMap[audience.icon];
+              return (
+              <div key={idx} className="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow border-t-4 border-brand-green group hover:border-brand-orange flex flex-col items-center text-center w-full sm:w-[45%] lg:w-[30%]">
+                  <div className="mb-6 bg-brand-light w-16 h-16 rounded-full flex items-center justify-center group-hover:bg-brand-green transition-colors border border-brand-green/20">
+                    {IconComponent && <IconComponent size={32} className="text-brand-green group-hover:text-white transition-colors" />}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{audience.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                      {audience.description}
+                  </p>
+              </div>
+            )})}
+        </div>
+        </div>
+      </section>
 
       {/* Services Section */}
       <section id="services" className="py-20 bg-brand-light relative">
@@ -185,25 +250,73 @@ const App: React.FC = () => {
               Comprehensive solutions designed to bridge the distance and ensure the wellbeing of your family.
             </p>
           </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {SERVICES_DATA.map((service, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border-t-4 border-brand-green group hover:border-brand-orange">
-                <div className="mb-6 bg-brand-light w-16 h-16 rounded-full flex items-center justify-center group-hover:bg-brand-green transition-colors border border-brand-green/20">
-                  {React.cloneElement(iconMap[service.icon] as React.ReactElement, { className: "text-brand-green group-hover:text-white transition-colors" })}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {SERVICES_DATA.map((service, idx) => {
+              const IconComponent = iconMap[service.icon];
+              return (
+              <div key={idx} className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden group flex flex-col">
+                <div className="aspect-w-16 aspect-h-9">
+                    <img src={service.image} alt={service.title} className="object-cover w-full h-full" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {service.description}
-                </p>
+                <div className="p-6 flex-grow flex flex-col">
+                    <div className="mb-4 bg-brand-light w-14 h-14 rounded-full flex items-center justify-center group-hover:bg-brand-green transition-colors border border-brand-green/20">
+                    {IconComponent && <IconComponent size={32} className="text-brand-green group-hover:text-white transition-colors" />}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                    <p className="text-gray-600 leading-relaxed flex-grow">
+                    {service.description}
+                    </p>
+                </div>
               </div>
-            ))}
+            )})}
           </div>
+        </div>
+      </section>
+      
+      {/* Platform Features Section */}
+      <section id="platform-features" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-6">A Platform Built for Trust</h2>
+                    <p className="text-xl text-brand-brown mb-8">Our upcoming digital platform is designed with clear roles to ensure security, transparency, and ease of use for everyone involved.</p>
+                    <div className="space-y-6">
+                        {USER_ROLES_DATA.map((role, idx) => {
+                            const IconComponent = iconMap[role.icon];
+                            return (
+                                <div key={idx} className="flex items-start gap-4">
+                                    <div className="bg-brand-light p-4 rounded-lg">
+                                        {IconComponent && <IconComponent className="w-8 h-8 text-brand-orange" />}
+                                    </div>
+                                    <div>
+                                        <h3 className="font-bold text-lg text-brand-dark">{role.title}</h3>
+                                        <p className="text-gray-600">{role.description}</p>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+                <div className="text-center">
+                     <h3 className="text-xl font-semibold text-brand-green mb-6">Future-Ready Integrations</h3>
+                     <div className="grid grid-cols-2 gap-6">
+                        {INTEGRATIONS_DATA.map((integration, idx) => {
+                            const IconComponent = iconMap[integration.icon];
+                            return(
+                                <div key={idx} className="bg-brand-light p-6 rounded-lg flex flex-col items-center justify-center border border-gray-200 hover:border-brand-gold transition-colors">
+                                    {IconComponent && <IconComponent className="w-10 h-10 text-brand-brown mb-3" />}
+                                    <span className="font-semibold text-gray-700">{integration.name}</span>
+                                </div>
+                            );
+                        })}
+                     </div>
+                </div>
+            </div>
         </div>
       </section>
 
       {/* Team Section */}
-      <section id="team" className="py-20 bg-white">
+      <section id="team" className="py-20 bg-brand-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-4">Meet Our Leadership</h2>
@@ -219,6 +332,48 @@ const App: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-4">Frequently Asked Questions</h2>
+                <p className="text-xl text-gray-600">Answers to common questions about our services and process.</p>
+            </div>
+            <div className="space-y-4">
+                {FAQ_DATA.map((faq, idx) => (
+                    <div key={idx} className="border-b border-gray-200 pb-4 last:border-b-0">
+                        <button 
+                            className="w-full flex justify-between items-center text-left py-4"
+                            onClick={() => setOpenFaqIndex(openFaqIndex === idx ? null : idx)}
+                        >
+                            <h3 className="text-lg font-semibold text-brand-dark">{faq.question}</h3>
+                            {openFaqIndex === idx ? <MinusCircle className="text-brand-orange"/> : <PlusCircle className="text-brand-green"/>}
+                        </button>
+                        {openFaqIndex === idx && (
+                            <div className="pt-2 pr-8 pl-2">
+                                <p className="text-gray-700 leading-relaxed animate-fade-in-up">{faq.answer}</p>
+                            </div>
+                        )}
+                    </div>
+                ))}
+            </div>
+        </div>
+      </section>
+
+      {/* Privacy Policy Section */}
+        <section id="privacy" className="py-20 bg-brand-light">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div className="flex justify-center mb-6">
+                    <BookLock className="w-16 h-16 text-brand-green" />
+                </div>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-6">Privacy & Security Commitment</h2>
+                <div className="bg-white p-8 rounded-lg shadow-md border-t-4 border-brand-gold">
+                    <p className="text-gray-700 leading-relaxed text-left">{PRIVACY_POLICY_TEXT}</p>
+                </div>
+            </div>
+        </section>
+
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-brand-green text-white relative overflow-hidden">
@@ -313,7 +468,6 @@ const App: React.FC = () => {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center gap-2 mb-4 text-white">
-                {/* Footer Logo */}
                  <img 
                     src="/logo.png" 
                     alt="Home Connect Logo" 
@@ -323,22 +477,21 @@ const App: React.FC = () => {
                 <span className="text-xl font-serif font-bold">Home Connect</span>
               </div>
               <p className="text-sm leading-relaxed max-w-xs text-green-100">
-                {TAGLINE_MAIN}. Empowering diaspora families with trust, transparency, and care.
+                Connecting Children, Strengthening Families, Building Futures. Empowering diaspora families with trust, transparency, and care.
               </p>
             </div>
             <div>
               <h4 className="text-brand-gold font-bold mb-4">Quick Links</h4>
               <ul className="space-y-2 text-sm">
-                <li><button onClick={() => scrollToSection('about')} className="hover:text-white transition-colors">About Us</button></li>
-                <li><button onClick={() => scrollToSection('services')} className="hover:text-white transition-colors">Services</button></li>
-                <li><button onClick={() => scrollToSection('team')} className="hover:text-white transition-colors">Our Team</button></li>
-                <li><button onClick={() => scrollToSection('contact')} className="hover:text-white transition-colors">Contact</button></li>
+                 {navLinks.map(link => (
+                    <li key={link}><button onClick={() => scrollToSection(link.toLowerCase())} className="hover:text-white transition-colors">{link}</button></li>
+                 ))}
               </ul>
             </div>
             <div>
               <h4 className="text-brand-gold font-bold mb-4">Legal</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><button onClick={() => scrollToSection('privacy')} className="hover:text-white transition-colors">Privacy Policy</button></li>
                 <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
               </ul>
             </div>
@@ -350,7 +503,6 @@ const App: React.FC = () => {
         </div>
       </footer>
 
-      {/* Floating AI Chat Widget */}
       <ChatWidget />
     </div>
   );
