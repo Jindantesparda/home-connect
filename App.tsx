@@ -198,7 +198,7 @@ const App: React.FC = () => {
                 <div className="md:col-span-1 flex justify-center">
                     <img
                         src="/images/Felix.png"
-                        alt="Mr. Felix Ngirazi"
+                        alt="Felix Ngirazi"
                         className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-8 border-brand-gold/50 shadow-md"
                     />
                 </div>
@@ -206,7 +206,7 @@ const App: React.FC = () => {
                     <h2 className="text-3xl font-serif font-bold text-brand-green mb-4">A Message from Our Founder</h2>
                     <p className="text-gray-600 italic leading-relaxed mb-6">"{FOUNDER_MESSAGE}"</p>
                     <div>
-                        <p className="font-bold text-brand-dark text-lg">Mr. Felix Ngirazi</p>
+                        <p className="font-bold text-brand-dark text-lg">Felix Ngirazi</p>
                         <p className="text-brand-orange font-semibold">Founder & Chairperson</p>
                     </div>
                 </div>
