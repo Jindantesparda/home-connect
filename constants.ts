@@ -9,7 +9,7 @@ export const FOUNDER_MESSAGE = "As the founder of Home Connect, my vision was bo
 
 export const TEAM_DATA: TeamMember[] = [
   {
-    name: "Mr. Felix Ngirazi",
+    name: "Felix Ngirazi",
     role: "Founder & Chairperson of the Board",
     tagline: "Guardian of the Vision",
     description: [
@@ -23,7 +23,7 @@ export const TEAM_DATA: TeamMember[] = [
     imageUrl: "/images/Felix.png"
   },
   {
-    name: "Miss Betty Machaka",
+    name: "Betty Machaka",
     role: "Vice Chairperson",
     tagline: "Bridge between Vision and Action",
     description: [
@@ -36,7 +36,7 @@ export const TEAM_DATA: TeamMember[] = [
     imageUrl: "/images/Betty.png"
   },
   {
-    name: "Mrs. Priscah Fisho",
+    name: "Priscah Fisho",
     role: "Executive Director",
     tagline: "Driver of Impact",
     description: [
@@ -50,7 +50,7 @@ export const TEAM_DATA: TeamMember[] = [
     imageUrl: "/images/Priscah.png"
   },
   {
-    name: "Mrs. Faith Rusike",
+    name: "Faith Rusike",
     role: "Deputy Executive Director",
     tagline: "Anchor of Operational Excellence",
     description: [
@@ -63,7 +63,7 @@ export const TEAM_DATA: TeamMember[] = [
     imageUrl: "/images/Faith.jpeg"
   },
   {
-    name: "Mr. Moses Fisho",
+    name: "Moses Fisho",
     role: "Treasurer of the Board",
     tagline: "Guardian of Financial Integrity",
     description: [
@@ -76,7 +76,7 @@ export const TEAM_DATA: TeamMember[] = [
     imageUrl: "/images/Moses.png"
   },
   {
-    name: "Mr. Patrick Madyira",
+    name: "Patrick Madyira",
     role: "Secretary",
     tagline: "Custodian of Organizational Memory",
     description: [
@@ -89,7 +89,7 @@ export const TEAM_DATA: TeamMember[] = [
     imageUrl: "/images/Madyira.png"
   },
   {
-    name: "Mr. Munyaradzi Mzite",
+    name: "Munyaradzi Mzite",
     role: "Administrator",
     tagline: "Engine of Daily Operations",
     description: [
