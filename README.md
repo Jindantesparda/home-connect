@@ -1,20 +1,7 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+Your Trusted Partner in Child Welfare
 
-# Run and deploy your AI Studio app
+We bring home and family close to you. We provide peace of mind by ensuring your children are safe, their needs are met, and your resources are used as intended.
 
-This contains everything you need to run your app locally.
+A Message from Our Founder
 
-View your app in AI Studio: https://ai.studio/apps/drive/1ERfJ8BctecugnXIipWbq4RHAqQ8idgO0
-
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+"As the founder of Home Connect, my vision was born from a deep understanding of the sacrifices parents and guardians make. Every day, you work tirelessly thousands of miles away, driven by the dream of providing a better future for your children back home. We created Home Connect to be your trusted partner on the ground—your eyes, your ears, and your heart. We are here to ensure that your hard-earned resources translate into genuine well-being, that your children feel your love and support, and that you have the peace of mind you deserve. We are more than a service; we are an extension of your family. Our mission is to protect children, strengthen families, and rebuild connections.Home Connect works with both local and diaspora parents, helping them stay actively involved in their children’s emotional and educational journeys. We also support guardians, schools, and communities to uphold the highest standards of child safeguarding."
