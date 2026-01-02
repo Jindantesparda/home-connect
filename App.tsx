@@ -4,7 +4,7 @@ import { TeamCard } from './components/TeamCard';
 import { ChatWidget } from './components/ChatWidget';
 import { Button } from './components/Button';
 import { Logo } from './components/Logo';
-import { TEAM_DATA, SERVICES_DATA, TAGLINE_SUB, TARGET_AUDIENCE_DATA, FOUNDER_MESSAGE, FAQ_DATA, USER_ROLES_DATA, INTEGRATIONS_DATA, PRIVACY_POLICY_TEXT } from './constants';
+import { TEAM_DATA, SERVICES_DATA, TAGLINE_SUB, TARGET_AUDIENCE_DATA, FOUNDER_MESSAGE, FAQ_DATA, USER_ROLES_DATA, INTEGRATIONS_DATA, PRIVACY_POLICY_TEXT, MISSION_AND_VALUES, VISION, CORE_VALUES  } from './constants';
 
 const App: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -370,7 +370,27 @@ const App: React.FC = () => {
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-6">Privacy & Security Commitment</h2>
                 <div className="bg-white p-8 rounded-lg shadow-md border-t-4 border-brand-gold">
                     <p className="text-gray-700 leading-relaxed text-left">{PRIVACY_POLICY_TEXT}</p>
+                    
                 </div>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-6">MISSION AND VISION</h2>
+                    <p><strong>Mission</strong></p>
+                    <p className="text-gray-700 leading-relaxed text-left">{MISSION_AND_VALUES}</p>
+                    <p><strong>Vision</strong></p>
+                    <p className="text-gray-700 leading-relaxed text-left">{VISION}</p>
+                
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-6">CORE VALUES</h2>
+                <p><strong>Core values</strong></p>
+                <ul className="space-y-4 text-left">
+  {CORE_VALUES.map((value, index) => (
+    <li key={index} className="flex gap-2">
+      <span className="font-bold text-brand-green">{index + 1}.</span>
+      <span className="text-gray-700">{value}</span>
+    </li>
+  ))}
+</ul>
+                
+                    
+                    
             </div>
         </section>
 
