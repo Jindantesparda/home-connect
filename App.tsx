@@ -418,6 +418,7 @@ const App: React.FC = () => {
                   <div>
                     <h3 className="font-bold text-lg">Call Us</h3>
                     <h3 className="font-bold text-lg">USA:+1 (903) 990-9760</h3>
+                    <h3 className="font-bold text-lg">Zimbabwe:+263 78 018 5878</h3
                     <p className="text-green-50">Zimbabwe: To be provided ASAP</p>
                     <p className="text-green-200 text-sm">Mon-Fri, 8am - 5pm</p>
                   </div>
