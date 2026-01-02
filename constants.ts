@@ -234,3 +234,13 @@ export const INTEGRATIONS_DATA: Integration[] = [
 ];
 
 export const PRIVACY_POLICY_TEXT = "At Home Connect we protect the personal information of children, parents and guardians with utmost confidentiality and care in line with Data Protection Act (Chapter 11:12) of Zimbabwe 2021, Children Act (Chapter 5:06) and Constitution of Zimbabwe (Section 57) right to privacy. All data is securely stored, encrypted and accessed only by authorized staff. We collect information solely for service delivery, with full parental or guardian consent. Records are kept for up to five years and then safely deleted. Any data breach will be reported within 48 hours to affected users and the Data Protection Authority of Zimbabwe.";
+export const MISSION_AND_VALUES = "To empower and support children of local and diaspora parents through accessible, professional, and culturally responsive services that promote emotional wellness, academic excellence, and family connection.";
+export const VISION = "Every child, regardless of parental distance should have access to emotional security, educational success, and stable family support services.";
+export const CORE_VALUES = [
+  "Empathy: Every family is treated with compassion and respect, with full acknowledgment of their unique experiences and challenges.",
+  "Integrity: Transparency in service delivery and client relations is consistently upheld, building trust and accountability",
+  "Inclusivity: Children from all backgrounds, cultures, and socio-economic statuses are embraced and supported.",
+  "Collaboration: We work with parents, schools, caregivers, and institutions to provide comprehensive support.",
+  "Empowerment: Confidence, resilience, and potential are nurtured in children through personalized and responsive support services.",
+  "Professionalism: Services are delivered with adherence to social work ethics, child rights principles, and the provisions of the Children’s Act Chapter 5:06, ensuring accountability and protection of every child."
+];
