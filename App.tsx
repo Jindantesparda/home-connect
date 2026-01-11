@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
-import { Menu, X, ChevronRight, HeartHandshake, ShieldCheck, Home, Users, Phone, Mail, MapPin, CheckCircle2, Globe, Shield, Smile, Building, UserCog, ClipboardList, UserCheck, CreditCard, MessageSquare, BarChart2, FolderKanban, PlusCircle, MinusCircle, BookLock, ShieldAlert, FileText, BookOpen, SmilePlus, Siren, ReceiptText, Truck } from 'lucide-react';
+import { 
+  Menu, X, ChevronRight, HeartHandshake, ShieldCheck, Home, Users, Phone, Mail, MapPin, 
+  CheckCircle2, Globe, Shield, Smile, Building, UserCog, ClipboardList, UserCheck, 
+  CreditCard, MessageSquare, BarChart2, FolderKanban, PlusCircle, MinusCircle, 
+  BookLock, ShieldAlert, FileText, BookOpen, SmilePlus, Siren, ReceiptText, Truck,
+  Target, Eye, Star
+} from 'lucide-react';
 import { TeamCard } from './components/TeamCard';
 import { ChatWidget } from './components/ChatWidget';
 import { Button } from './components/Button';
 import { Logo } from './components/Logo';
-import { TEAM_DATA, SERVICES_DATA, TAGLINE_SUB, TARGET_AUDIENCE_DATA, FOUNDER_MESSAGE, FAQ_DATA, USER_ROLES_DATA, INTEGRATIONS_DATA, PRIVACY_POLICY_TEXT, MISSION_AND_VALUES, VISION, CORE_VALUES  } from './constants';
+import { 
+  TEAM_DATA, SERVICES_DATA, TAGLINE_SUB, TARGET_AUDIENCE_DATA, FOUNDER_MESSAGE, 
+  FAQ_DATA, USER_ROLES_DATA, INTEGRATIONS_DATA, PRIVACY_POLICY_TEXT, 
+  MISSION_AND_VALUES, VISION, CORE_VALUES  
+} from './constants';
 
 const App: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -21,28 +31,10 @@ const App: React.FC = () => {
   };
 
   const iconMap: Record<string, React.ComponentType<any>> = {
-    HeartHandshake,
-    ShieldCheck,
-    Home,
-    Users,
-    Globe,
-    Shield,
-    Smile,
-    Building,
-    UserCog,
-    ClipboardList,
-    UserCheck,
-    CreditCard,
-    MessageSquare,
-    BarChart2,
-    FolderKanban,
-    ShieldAlert,
-    FileText,
-    BookOpen,
-    SmilePlus,
-    Siren,
-    ReceiptText,
-    Truck
+    HeartHandshake, ShieldCheck, Home, Users, Globe, Shield, Smile, Building, 
+    UserCog, ClipboardList, UserCheck, CreditCard, MessageSquare, BarChart2, 
+    FolderKanban, ShieldAlert, FileText, BookOpen, SmilePlus, Siren, 
+    ReceiptText, Truck
   };
 
   return (
@@ -73,7 +65,6 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8 items-center">
               {navLinks.map((item) => (
                 <button
@@ -89,7 +80,6 @@ const App: React.FC = () => {
               </Button>
             </div>
 
-            {/* Mobile Menu Button */}
             <div className="md:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -214,8 +204,61 @@ const App: React.FC = () => {
         </div>
       </section>
 
+      {/* Mission, Vision & Core Values Section */}
+      <section id="mission-values" className="py-20 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 mb-16">
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="bg-brand-green/10 p-3 rounded-xl">
+                  <Target className="text-brand-green w-8 h-8" />
+                </div>
+                <h2 className="text-3xl font-serif font-bold text-brand-green">Our Mission</h2>
+              </div>
+              <p className="text-lg text-gray-700 leading-relaxed border-l-4 border-brand-green pl-6">
+                {MISSION_AND_VALUES}
+              </p>
+            </div>
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="bg-brand-orange/10 p-3 rounded-xl">
+                  <Eye className="text-brand-orange w-8 h-8" />
+                </div>
+                <h2 className="text-3xl font-serif font-bold text-brand-orange">Our Vision</h2>
+              </div>
+              <p className="text-lg text-gray-700 leading-relaxed border-l-4 border-brand-orange pl-6">
+                {VISION}
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-20">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-serif font-bold text-brand-green mb-4">Core Values</h2>
+              <p className="text-brand-brown font-medium">The principles that guide every connection we make.</p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {CORE_VALUES.map((value, index) => {
+                const [title, desc] = value.split(':');
+                return (
+                  <div key={index} className="bg-brand-light p-6 rounded-xl border border-brand-green/10 hover:shadow-md transition-shadow">
+                    <div className="flex items-start gap-3">
+                      <Star className="text-brand-gold w-5 h-5 mt-1 flex-shrink-0" />
+                      <div>
+                        <h3 className="font-bold text-brand-dark mb-2">{title}</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">{desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Who We Serve Section */}
-      <section id="who-we-serve" className="py-20 bg-white">
+      <section id="who-we-serve" className="py-20 bg-brand-light/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-4">Who We Serve</h2>
@@ -237,7 +280,7 @@ const App: React.FC = () => {
                   </p>
               </div>
             )})}
-        </div>
+          </div>
         </div>
       </section>
 
@@ -362,38 +405,17 @@ const App: React.FC = () => {
       </section>
 
       {/* Privacy Policy Section */}
-        <section id="privacy" className="py-20 bg-brand-light">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <div className="flex justify-center mb-6">
-                    <BookLock className="w-16 h-16 text-brand-green" />
-                </div>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-6">Privacy & Security Commitment</h2>
-                <div className="bg-white p-8 rounded-lg shadow-md border-t-4 border-brand-gold">
-                    <p className="text-gray-700 leading-relaxed text-left">{PRIVACY_POLICY_TEXT}</p>
-                    
-                </div>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-6">MISSION AND VISION</h2>
-                    <p><strong>Mission</strong></p>
-                    <p className="text-gray-700 leading-relaxed text-left">{MISSION_AND_VALUES}</p>
-                    <p><strong>Vision</strong></p>
-                    <p className="text-gray-700 leading-relaxed text-left">{VISION}</p>
-                
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-6">CORE VALUES</h2>
-                <p><strong>Core values</strong></p>
-                <ul className="space-y-4 text-left">
-  {CORE_VALUES.map((value, index) => (
-    <li key={index} className="flex gap-2">
-      <span className="font-bold text-brand-green">{index + 1}.</span>
-      <span className="text-gray-700">{value}</span>
-    </li>
-  ))}
-</ul>
-                
-                    
-                    
-            </div>
-        </section>
-
+      <section id="privacy" className="py-20 bg-brand-light">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <div className="flex justify-center mb-6">
+                  <BookLock className="w-16 h-16 text-brand-green" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-6">Privacy & Security Commitment</h2>
+              <div className="bg-white p-8 rounded-lg shadow-md border-t-4 border-brand-gold">
+                  <p className="text-gray-700 leading-relaxed text-left">{PRIVACY_POLICY_TEXT}</p>
+              </div>
+          </div>
+      </section>
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-brand-green text-white relative overflow-hidden">
@@ -422,14 +444,14 @@ const App: React.FC = () => {
                     <p className="text-green-200 text-sm">Mon-Fri, 8am - 5pm</p>
                   </div>
                 </div>
-                
+        
                 <div className="flex items-start gap-4">
                   <div className="bg-white/10 p-3 rounded-lg border border-white/20">
                     <Mail className="w-6 h-6 text-brand-gold" />
                   </div>
                   <div>
                     <h3 className="font-bold text-lg">Email Us</h3>
-                    <p className="text-green-50">info@homeconnect.org</p>
+                    <p className="text-green-50">info@homeconnect.co.zw</p>
                     <p className="text-green-200 text-sm">We reply within 24 hours</p>
                   </div>
                 </div>
