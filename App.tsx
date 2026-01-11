@@ -461,7 +461,7 @@ const App: React.FC = () => {
                     <MapPin className="w-6 h-6 text-brand-gold" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg">Visit Our Office</h3>
+                    <h3 className="font-bold text-lg">Visit Our Offices</h3>
                     <p className="text-green-50">Zimbabwe:</p>
                     <p className="text-green-50">10 Aberdeen Road, Avondale, Harare</p>
                     <p className="text-green-50">USA Office</p>
