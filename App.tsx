@@ -39,7 +39,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
-      {/* Navigation */}
+      {/* 1. Navigation */}
       <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-24">
@@ -108,7 +108,7 @@ const App: React.FC = () => {
         )}
       </nav>
 
-      {/* Hero Section */}
+      {/* 2. Hero Section */}
       <section className="relative bg-brand-dark overflow-hidden">
         <div className="absolute inset-0">
           <img 
@@ -144,7 +144,7 @@ const App: React.FC = () => {
 
       <Logo />
 
-      {/* About Section */}
+      {/* 3. About Section */}
       <section id="about" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -181,7 +181,7 @@ const App: React.FC = () => {
         </div>
       </section>
       
-      {/* Founder's Message Section */}
+      {/* 4. Founder's Message Section */}
       <section id="founder-message" className="py-20 bg-brand-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden p-8 md:p-12 grid md:grid-cols-3 gap-8 items-center">
@@ -204,7 +204,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Mission, Vision & Core Values Section */}
+      {/* 5. Mission, Vision & Core Values (Moved Up) */}
       <section id="mission-values" className="py-20 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 mb-16">
@@ -257,7 +257,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Who We Serve Section */}
+      {/* 6. Who We Serve Section */}
       <section id="who-we-serve" className="py-20 bg-brand-light/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -284,7 +284,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* 7. Services Section */}
       <section id="services" className="py-20 bg-brand-light relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
@@ -316,7 +316,7 @@ const App: React.FC = () => {
         </div>
       </section>
       
-      {/* Platform Features Section */}
+      {/* 8. Platform Features Section */}
       <section id="platform-features" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -358,7 +358,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* 9. Team Section */}
       <section id="team" className="py-20 bg-brand-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -376,7 +376,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* 10. FAQ Section */}
       <section id="faq" className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -404,7 +404,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Privacy Policy Section */}
+      {/* 11. Privacy Policy Section */}
       <section id="privacy" className="py-20 bg-brand-light">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <div className="flex justify-center mb-6">
@@ -417,7 +417,7 @@ const App: React.FC = () => {
           </div>
       </section>
 
-      {/* Contact Section */}
+      {/* 12. Contact Section */}
       <section id="contact" className="py-20 bg-brand-green text-white relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
            <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-brand-gold blur-3xl"></div>
@@ -461,8 +461,8 @@ const App: React.FC = () => {
                     <MapPin className="w-6 h-6 text-brand-gold" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg">Visit Our Offices</h3>
-                    <p className="text-green-50">Zimbabwe:</p>
+                    <h3 className="font-bold text-lg">Visit Our Office</h3>
+                    <p className="text-green-50">Zimbabwean Office:</p>
                     <p className="text-green-50">10 Aberdeen Road, Avondale, Harare</p>
                     <p className="text-green-50">USA Office</p>
                     <p className="text-green-50">6665 Santa Cristina, Dallas, TX</p>
@@ -507,7 +507,31 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* 13. Download Resources Section (New) */}
+      <section className="py-12 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-brand-light rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 border border-brand-green/10">
+            <div className="flex items-center gap-4">
+              <div className="bg-brand-green text-white p-3 rounded-xl shadow-lg">
+                <FileText size={32} />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-brand-dark">Company Profile</h3>
+                <p className="text-gray-600">Download our full "About Us" brochure and service guide.</p>
+              </div>
+            </div>
+            <a 
+              href="/About-Home-Connect.pdf" 
+              download="Home-Connect-About-Us.pdf"
+              className="inline-flex items-center justify-center px-8 py-3 bg-brand-orange hover:bg-orange-600 text-white font-bold rounded-full transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1"
+            >
+              Download PDF
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 14. Footer */}
       <footer className="bg-brand-dark text-gray-400 py-12 border-t border-green-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
