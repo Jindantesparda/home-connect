@@ -599,7 +599,7 @@ const App: React.FC = () => {
                   <span className="text-xs text-brand-orange font-bold uppercase tracking-widest">Official Docs</span>
                   <div className="flex gap-2 mt-2">
                     <a href="/HOME-CONNECT-PARENT-INFORMATION-PACK.pdf" download title="Parent Pack"><FileText size={18} className="hover:text-white"/></a>
-                    <a href="/HOME-CONNECT-CHILD-PROTECTION-HANDBOOK.pdf" download title="Handbook"><ShieldCheck size={18} className="hover:text-white"/></a>
+                    <a href="/HOME-CONNECT-CHILD-PROTECTION-&-SAFEGUARDING-HANDBOOK.pdf" download title="Handbook"><ShieldCheck size={18} className="hover:text-white"/></a>
                     <a href="/HOME-CONNECT-CASE-MANAGEMENT-GUIDELINE.pdf" download title="Handbook"><ShieldCheck size={18} className="hover:text-white"/></a>
                   </div>
                 </li>
