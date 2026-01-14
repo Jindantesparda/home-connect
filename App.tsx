@@ -302,4 +302,320 @@ const App: React.FC = () => {
                     <img src={service.image} alt={service.title} className="object-cover w-full h-full" />
                 </div>
                 <div className="p-6 flex-grow flex flex-col">
-                    <div className="
+                    <div className="mb-4 bg-brand-light w-14 h-14 rounded-full flex items-center justify-center group-hover:bg-brand-green transition-colors border border-brand-green/20">
+                    {IconComponent && <IconComponent size={32} className="text-brand-green group-hover:text-white transition-colors" />}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                    <p className="text-gray-600 leading-relaxed flex-grow">
+                    {service.description}
+                    </p>
+                </div>
+              </div>
+            )})}
+          </div>
+        </div>
+      </section>
+      
+      {/* 8. Platform Features Section */}
+      <section id="platform-features" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-6">A Platform Built for Trust</h2>
+                    <p className="text-xl text-brand-brown mb-8">Our upcoming digital platform is designed with clear roles to ensure security, transparency, and ease of use for everyone involved.</p>
+                    <div className="space-y-6">
+                        {USER_ROLES_DATA.map((role, idx) => {
+                            const IconComponent = iconMap[role.icon];
+                            return (
+                                <div key={idx} className="flex items-start gap-4">
+                                    <div className="bg-brand-light p-4 rounded-lg">
+                                        {IconComponent && <IconComponent className="w-8 h-8 text-brand-orange" />}
+                                    </div>
+                                    <div>
+                                        <h3 className="font-bold text-lg text-brand-dark">{role.title}</h3>
+                                        <p className="text-gray-600">{role.description}</p>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+                <div className="text-center">
+                     <h3 className="text-xl font-semibold text-brand-green mb-6">Future-Ready Integrations</h3>
+                     <div className="grid grid-cols-2 gap-6">
+                        {INTEGRATIONS_DATA.map((integration, idx) => {
+                            const IconComponent = iconMap[integration.icon];
+                            return(
+                                <div key={idx} className="bg-brand-light p-6 rounded-lg flex flex-col items-center justify-center border border-gray-200 hover:border-brand-gold transition-colors">
+                                    {IconComponent && <IconComponent className="w-10 h-10 text-brand-brown mb-3" />}
+                                    <span className="font-semibold text-gray-700">{integration.name}</span>
+                                </div>
+                            );
+                        })}
+                     </div>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      {/* 9. Team Section */}
+      <section id="team" className="py-20 bg-brand-light">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-4">Meet Our Leadership</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Guided by integrity, driven by compassion. Meet the team protecting your vision.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {TEAM_DATA.map((member, idx) => (
+              <TeamCard key={idx} member={member} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 10. FAQ Section */}
+      <section id="faq" className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-4">Frequently Asked Questions</h2>
+                <p className="text-xl text-gray-600">Answers to common questions about our services and process.</p>
+            </div>
+            <div className="space-y-4">
+                {FAQ_DATA.map((faq, idx) => (
+                    <div key={idx} className="border-b border-gray-200 pb-4 last:border-b-0">
+                        <button 
+                            className="w-full flex justify-between items-center text-left py-4"
+                            onClick={() => setOpenFaqIndex(openFaqIndex === idx ? null : idx)}
+                        >
+                            <h3 className="text-lg font-semibold text-brand-dark">{faq.question}</h3>
+                            {openFaqIndex === idx ? <MinusCircle className="text-brand-orange"/> : <PlusCircle className="text-brand-green"/>}
+                        </button>
+                        {openFaqIndex === idx && (
+                            <div className="pt-2 pr-8 pl-2">
+                                <p className="text-gray-700 leading-relaxed animate-fade-in-up">{faq.answer}</p>
+                            </div>
+                        )}
+                    </div>
+                ))}
+            </div>
+        </div>
+      </section>
+
+      {/* 11. Privacy Policy Section */}
+      <section id="privacy" className="py-20 bg-brand-light">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <div className="flex justify-center mb-6">
+                  <BookLock className="w-16 h-16 text-brand-green" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-6">Privacy & Security Commitment</h2>
+              <div className="bg-white p-8 rounded-lg shadow-md border-t-4 border-brand-gold">
+                  <p className="text-gray-700 leading-relaxed text-left">{PRIVACY_POLICY_TEXT}</p>
+              </div>
+          </div>
+      </section>
+
+      {/* 12. Contact Section */}
+      <section id="contact" className="py-20 bg-brand-green text-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+           <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-brand-gold blur-3xl"></div>
+           <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-brand-orange blur-3xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">Let's Reconnect Your Family</h2>
+              <p className="text-green-100 text-lg mb-8">
+                If you're ready to ensure your children are getting the care they deserve. Contact us today for a confidential consultation.
+              </p>
+              
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-white/10 p-3 rounded-lg border border-white/20">
+                    <Phone className="w-6 h-6 text-brand-gold" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg">Call Us</h3>
+                    <h3 className="font-bold text-lg">USA:+1 (903) 990-9760</h3>
+                    <h3 className="font-bold text-lg">Zimbabwe:+263 78 018 5878</h3>
+                    <p className="text-green-200 text-sm">Mon-Fri, 8am - 5pm</p>
+                  </div>
+                </div>
+        
+                <div className="flex items-start gap-4">
+                  <div className="bg-white/10 p-3 rounded-lg border border-white/20">
+                    <Mail className="w-6 h-6 text-brand-gold" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg">Email Us</h3>
+                    <p className="text-green-50">info@homeconnect.co.zw</p>
+                    <p className="text-green-200 text-sm">We reply within 24 hours</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="bg-white/10 p-3 rounded-lg border border-white/20">
+                    <MapPin className="w-6 h-6 text-brand-gold" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg">Visit Our Office</h3>
+                    <p className="text-green-50">Zimbabwea:</p>
+                    <p className="text-green-50">10 Aberdeen Road, Avondale, Harare</p>
+                    <p className="text-green-50">USA:</p>
+                    <p className="text-green-50">6665 Santa Cristina, Dallas, TX</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-xl text-gray-900 border-t-8 border-brand-gold">
+              <h3 className="text-2xl font-bold mb-6 text-brand-green">Send a Message</h3>
+              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                    <input type="text" className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none bg-gray-50" placeholder="John" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                    <input type="text" className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none bg-gray-50" placeholder="Doe" />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                  <input type="email" className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none bg-gray-50" placeholder="john@example.com" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Service of Interest</label>
+                  <select className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none bg-gray-50">
+                    <option>Welfare Monitoring</option>
+                    <option>Financial Verification</option>
+                    <option>General Inquiry</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                  <textarea rows={4} className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none bg-gray-50" placeholder="How can we help you?"></textarea>
+                </div>
+                <Button className="w-full" size="lg">Send Message</Button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 13. Official Resources Section */}
+      <section id="resources" className="py-20 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-serif font-bold text-brand-green mb-4">Official Resources</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Download our essential guides and handbooks to understand our commitment to your family's safety and professional care.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: "Parent Information Pack",
+                file: "/HOME-CONNECT-PARENT-INFORMATION-PACK.pdf",
+                icon: <FileText className="w-6 h-6" />,
+                color: "bg-brand-green"
+              },
+              {
+                title: "Case Management Guideline",
+                file: "/HOME-CONNECT-CASE-MANAGEMENT-GUIDELINE.pdf",
+                icon: <ClipboardList className="w-6 h-6" />,
+                color: "bg-brand-orange"
+              },
+              {
+                title: "Child Protection Handbook",
+                file: "/HOME-CONNECT-CHILD-PROTECTION-HANDBOOK.pdf",
+                icon: <ShieldCheck className="w-6 h-6" />,
+                color: "bg-brand-brown"
+              },
+              {
+                title: "Company Profile",
+                file: "/About-Home-Connect.pdf",
+                icon: <Building className="w-6 h-6" />,
+                color: "bg-brand-gold"
+              }
+            ].map((doc, idx) => (
+              <div key={idx} className="bg-brand-light rounded-2xl p-6 flex flex-col items-center text-center border border-brand-green/10 hover:shadow-lg transition-all group">
+                <div className={`${doc.color} text-white p-3 rounded-xl mb-4 shadow-md group-hover:rotate-6 transition-transform`}>
+                  {doc.icon}
+                </div>
+                <h3 className="font-bold text-brand-dark mb-4 text-sm h-10 flex items-center justify-center leading-tight">
+                  {doc.title}
+                </h3>
+                <a 
+                  href={doc.file} 
+                  download 
+                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 bg-white border-2 border-brand-green text-brand-green hover:bg-brand-green hover:text-white text-xs font-bold rounded-lg transition-colors"
+                >
+                  <Download size={14} /> Download PDF
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 14. Footer */}
+      <footer className="bg-brand-dark text-gray-400 py-12 border-t border-green-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div className="col-span-1 md:col-span-2">
+              <div className="flex items-center gap-2 mb-4 text-white">
+                 <img 
+                    src="/logo.png" 
+                    alt="Home Connect Logo" 
+                    className="h-8 w-auto"
+                    onError={(e) => e.currentTarget.style.display = 'none'}
+                  />
+                <span className="text-xl font-serif font-bold">Home Connect</span>
+              </div>
+              <p className="text-sm leading-relaxed max-w-xs text-green-100">
+                Connecting Children, Strengthening Families, Building Futures. Empowering diaspora families with trust, transparency, and care.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-brand-gold font-bold mb-4">Quick Links</h4>
+              <ul className="space-y-2 text-sm">
+                 {navLinks.map(link => (
+                    <li key={link}><button onClick={() => scrollToSection(link.toLowerCase())} className="hover:text-white transition-colors">{link}</button></li>
+                 ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-brand-gold font-bold mb-4">Legal</h4>
+              <ul className="space-y-2 text-sm">
+                <li><button onClick={() => scrollToSection('privacy')} className="hover:text-white transition-colors">Privacy Policy</button></li>
+                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+                <li className="pt-2">
+                  <span className="text-xs text-brand-orange font-bold uppercase tracking-widest">Official Docs</span>
+                  <div className="flex gap-2 mt-2">
+                    <a href="/HOME-CONNECT-PARENT-INFORMATION-PACK.pdf" download title="Parent Pack"><FileText size={18} className="hover:text-white"/></a>
+                    <a href="/HOME-CONNECT-CHILD-PROTECTION-HANDBOOK.pdf" download title="Handbook"><ShieldCheck size={18} className="hover:text-white"/></a>
+                    <a href="/HOME-CONNECT-CASE-MANAGEMENT-GUIDELINE.pdf" download title="Handbook"><ShieldCheck size={18} className="hover:text-white"/></a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-green-900 pt-8 text-center text-xs text-green-200 flex flex-col md:flex-row justify-between items-center">
+            <p>&copy; {new Date().getFullYear()} Home Connect. All rights reserved.</p>
+            <p className="mt-2 md:mt-0">Proudly Zimbabwean <span className="text-brand-red">♥</span></p>
+          </div>
+        </div>
+      </footer>
+
+      <ChatWidget />
+    </div>
+  );
+};
+
+export default App;
