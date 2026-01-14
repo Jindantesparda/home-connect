@@ -462,7 +462,7 @@ const App: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg">Visit Our Office</h3>
-                    <p className="text-green-50">Zimbabwea:</p>
+                    <p className="text-green-50">Zimbabwe:</p>
                     <p className="text-green-50">10 Aberdeen Road, Avondale, Harare</p>
                     <p className="text-green-50">USA:</p>
                     <p className="text-green-50">6665 Santa Cristina, Dallas, TX</p>
