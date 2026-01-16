@@ -87,7 +87,7 @@ const App: React.FC = () => {
               >
                 {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
-            </div>
+            </div>d
           </div>
         </div>
 
@@ -592,11 +592,13 @@ const App: React.FC = () => {
                 <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
                 <li className="pt-2">
                   <span className="text-xs text-brand-orange font-bold uppercase tracking-widest">Official Docs</span>
+                  <center>
                   <div className="flex gap-2 mt-2">
                     <a href="/HOME-CONNECT-PARENT-INFORMATION-PACK.pdf" download title="Parent Pack"><FileText size={18} className="hover:text-white"/></a>
                     <a href="/HOME-CONNECT-CHILD-PROTECTION-&-SAFEGUARDING-HANDBOOK.pdf" download title="Handbook"><ShieldCheck size={18} className="hover:text-white"/></a>
                     <a href="/HOME-CONNECT-CASE-MANAGEMENT-GUIDELINE.pdf" download title="Handbook"><ShieldCheck size={18} className="hover:text-white"/></a>
                   </div>
+                    </center>
                 </li>
               </ul>
             </div>
