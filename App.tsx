@@ -533,7 +533,7 @@ const App: React.FC = () => {
               },
               {
                 title: "Child Protection Handbook",
-                file: "/HOME-CONNECT-CHILD-PROTECTION-HANDBOOK.pdf",
+                file: "/HOME-CONNECT-CHILD-PROTECTION-&-SAFEGUARDING-HANDBOOK.pdf",
                 icon: <ShieldCheck className="w-6 h-6" />,
                 color: "bg-brand-brown"
               },
