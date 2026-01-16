@@ -537,12 +537,7 @@ const App: React.FC = () => {
                 icon: <ShieldCheck className="w-6 h-6" />,
                 color: "bg-brand-brown"
               },
-              {
-                title: "Company Profile",
-                file: "/About-Home-Connect.pdf",
-                icon: <Building className="w-6 h-6" />,
-                color: "bg-brand-gold"
-              }
+             
             ].map((doc, idx) => (
               <div key={idx} className="bg-brand-light rounded-2xl p-6 flex flex-col items-center text-center border border-brand-green/10 hover:shadow-lg transition-all group">
                 <div className={`${doc.color} text-white p-3 rounded-xl mb-4 shadow-md group-hover:rotate-6 transition-transform`}>
