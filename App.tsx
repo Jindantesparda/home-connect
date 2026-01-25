@@ -87,7 +87,7 @@ const App: React.FC = () => {
               >
                 {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
-            </div>d
+            </div>
           </div>
         </div>
 
